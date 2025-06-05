@@ -1,3 +1,4 @@
+########Recipe 1: Creating datetime Objects
 from datetime import datetime
 
 dt1 = datetime.now()
@@ -28,3 +29,15 @@ print(f'Timezone: {dt2.tzinfo}')
 
 print(f'Date: {dt1.date()}')
 print(f'Type: {type(dt1.date())}')
+
+######## Recipe 2: Crating timedelta objects
+
+from datetime import timedelta
+
+td1  = timedelta(days=5)
+print(f'Time difference: {td1}')
+
+td2 = timedelta(days=3)
+print(f'Time difference: {td2}')
+
+print(f'Addition: {td1} + {td2} = {td1 + td2}')
