@@ -329,3 +329,29 @@ df_new = pandas.DataFrame([
 print(df_new)
 
 print(pandas.concat([df, df_new]).reset_index(drop=True))
+
+import random
+
+df1 = pandas.DataFrame([random.randint(1,100) for i in range(10)],columns=['open'])
+print(df1)
+
+df2 = pandas.DataFrame([random.randint(1,100) for i in range(10)],
+                       columns = ['close'])
+print(df2)
+
+print(pandas.concat([df1,df2], axis=1))
+
+
+######Recipe 11: Convertimg a DataFrame into other Formats
+
+df.to_csv('dataframe.csv', index=False)
+print(df.to_json())
+
+print(df.to_pickle('df.pickle'))
+
+#######Recipe 11: Creating a DataFrame from other formats
+
+print(pandas.read_csv('dataframe.csv'))
+
+print(pandas.read_json('{"timestamp":{"0":"13-11-2003 00:00:00","1":"13-11-2003 00:20:00","2":"13-11-2003 00:30:00","3":"13-11-2003 01:00:00","4":"13-11-2003 01:10:00","5":"13-11-2003 01:20:00","6":"13-11-2003 01:30:00","7":"13-11-2003 02:00:00","8":"13-11-2003 02:10:00","9":"13-11-2003 02:20:00"},"open":{"0":71.8075,"1":71.8075,"2":71.8075,"3":71.8075,"4":71.8077,"5":71.8072,"6":71.805,"7":71.8175,"8":71.5,"9":71.4775},"high":{"0":71.845,"1":71.845,"2":71.845,"3":71.845,"4":71.8459,"5":71.8458,"6":71.85,"7":71.8995,"8":71.8115,"9":71.695},"low":{"0":71.7775,"1":71.7775,"2":71.7775,"3":71.7775,"4":71.77715,"5":71.7745,"6":71.7735,"7":71.75,"8":71.9775,"9":71.6795},"close":{"0":71.7925,"1":71.7925,"2":71.7925,"3":71.7925,"4":71.79235,"5":71.725,"6":71.7125,"7":71.225,"8":71.79925,"9":71.725},"volume":{"0":219512,"1":219512,"2":219512,"3":219512,"4":119582,"5":229532,"6":819912,"7":239512,"8":119512,"9":129512}}'))
+print(pandas.read_pickle('df.pickle'))
